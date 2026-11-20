@@ -1,0 +1,1796 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KinclongPro Laundry — Jasa Laundry Kiloan & Satuan Premium</title>
+    <meta name="description" content="Layanan laundry profesional, cepat, higienis, dan wangi tahan lama dengan layanan antar-jemput gratis.">
+    
+    <!-- Google Fonts: Plus Jakarta Sans untuk kesan modern & bersih -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==================== VARIABEL & RESET ==================== */
+        :root {
+            --primary: #0284c7;         /* Biru Cerah Profesional */
+            --primary-dark: #0369a1;    /* Biru Tua Hover */
+            --primary-light: #e0f2fe;   /* Biru Muda Lembut */
+            --primary-bg: #f0f9ff;      /* Latar Biru Sangat Muda */
+            --navy: #0f172a;            /* Teks Utama Gelap */
+            --slate: #475569;           /* Teks Sekunder */
+            --slate-light: #94a3b8;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --whatsapp: #25d366;
+            --whatsapp-dark: #1ebe5d;
+            --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+            --shadow-md: 0 10px 25px -5px rgba(2, 132, 199, 0.12);
+            --shadow-lg: 0 20px 40px -10px rgba(15, 23, 42, 0.15);
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--navy);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img, svg {
+            display: block;
+            max-width: 100%;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ==================== TOMBOL ==================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 13px 26px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, #0ea5e9 100%);
+            color: var(--white);
+            box-shadow: 0 6px 18px rgba(2, 132, 199, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(2, 132, 199, 0.4);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+        }
+
+        .btn-outline {
+            background: var(--white);
+            color: var(--primary);
+            border: 1.5px solid var(--primary-light);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            background: var(--primary-bg);
+            transform: translateY(-2px);
+        }
+
+        .btn-whatsapp {
+            background: var(--whatsapp);
+            color: var(--white);
+            box-shadow: 0 6px 18px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            background: var(--whatsapp-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(37, 211, 102, 0.4);
+        }
+
+        /* ==================== NAVBAR ==================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.7);
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+            padding: 2px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 76px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--navy);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), #38bdf8);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--slate);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2.5px;
+            background: var(--primary);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            color: var(--navy);
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            padding: 140px 0 90px;
+            background: radial-gradient(circle at top right, #e0f2fe 0%, #f8fafc 45%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+            color: var(--navy);
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary) 0%, #0ea5e9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--slate);
+            margin-bottom: 32px;
+            max-width: 560px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 40px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 36px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat-item h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .stat-item p {
+            font-size: 0.85rem;
+            color: var(--slate);
+            margin: 0;
+        }
+
+        /* Hero Visual Card (Ilustrasi SVG + Floating Card) */
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-card-main {
+            width: 100%;
+            max-width: 440px;
+            background: linear-gradient(145deg, #0284c7, #0369a1);
+            border-radius: 28px;
+            padding: 36px;
+            color: var(--white);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card-main::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 180px;
+            height: 180px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .washer-illustration {
+            width: 190px;
+            height: 190px;
+            margin: 10px auto 24px;
+            background: var(--white);
+            border-radius: 24px;
+            padding: 18px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .washer-top {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 6px;
+        }
+
+        .washer-dots {
+            display: flex;
+            gap: 5px;
+        }
+
+        .washer-dots span {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #cbd5e1;
+        }
+
+        .washer-dots span:first-child {
+            background: var(--primary);
+        }
+
+        .washer-screen {
+            width: 44px;
+            height: 14px;
+            background: #e0f2fe;
+            border-radius: 4px;
+            font-size: 9px;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .washer-drum {
+            width: 112px;
+            height: 112px;
+            border-radius: 50%;
+            border: 8px solid #e2e8f0;
+            background: linear-gradient(180deg, #bae6fd 0%, #38bdf8 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .water-wave {
+            position: absolute;
+            bottom: -10px;
+            width: 140%;
+            height: 65%;
+            background: rgba(2, 132, 199, 0.65);
+            border-radius: 40%;
+            animation: spinWave 5s linear infinite;
+        }
+
+        .floating-pill {
+            position: absolute;
+            background: var(--white);
+            color: var(--navy);
+            padding: 12px 18px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border: 1px solid var(--border);
+        }
+
+        .floating-pill.top-left {
+            top: 24px;
+            left: -20px;
+            animation: float 5s ease-in-out infinite reverse;
+        }
+
+        .floating-pill.bottom-right {
+            bottom: 24px;
+            right: -15px;
+            animation: float 4.5s ease-in-out infinite;
+        }
+
+        .pill-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: var(--primary-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* ==================== SECTION COMMON ==================== */
+        section {
+            padding: 90px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 54px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 10px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 14px;
+            color: var(--navy);
+        }
+
+        .section-header p {
+            color: var(--slate);
+            font-size: 1.05rem;
+        }
+
+        /* ==================== KEUNGGULAN ==================== */
+        .features {
+            background: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px 26px;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary-light);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 14px;
+            background: var(--primary-bg);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .feature-icon {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .feature-card h3 {
+            font-size: 1.18rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: var(--slate);
+            font-size: 0.94rem;
+        }
+
+        /* ==================== LAYANAN & HARGA ==================== */
+        .services {
+            background: var(--primary-bg);
+        }
+
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            padding: 10px 22px;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+            background: var(--white);
+            color: var(--slate);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 26px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .service-card.popular {
+            border: 2px solid var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -13px;
+            right: 24px;
+            background: linear-gradient(135deg, var(--primary), #0ea5e9);
+            color: var(--white);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-category {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: var(--primary-light);
+            padding: 4px 12px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-bottom: 14px;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .service-price {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 12px 0;
+        }
+
+        .service-price span {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--slate);
+        }
+
+        .service-desc {
+            color: var(--slate);
+            font-size: 0.93rem;
+            margin-bottom: 20px;
+        }
+
+        .service-list {
+            margin-bottom: 26px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .service-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--navy);
+        }
+
+        .service-list li svg {
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .service-card .btn {
+            width: 100%;
+        }
+
+        /* ==================== KALKULATOR ESTIMASI ==================== */
+        .calculator-box {
+            margin-top: 60px;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-md);
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 0.6fr;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .calc-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--navy);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            border: 1.5px solid var(--border);
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--navy);
+            background: var(--white);
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+
+        .calc-result {
+            background: linear-gradient(135deg, var(--primary) 0%, #0369a1 100%);
+            color: var(--white);
+            padding: 26px;
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+
+        .calc-result span {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .calc-result h4 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 6px 0 14px;
+        }
+
+        /* ==================== CARA KERJA ==================== */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 24px;
+            position: relative;
+        }
+
+        .step-number {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--white);
+            font-size: 1.25rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.3);
+        }
+
+        .step-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .step-card p {
+            font-size: 0.92rem;
+            color: var(--slate);
+        }
+
+        /* ==================== TESTIMONI ==================== */
+        .testimonials {
+            background: var(--primary-bg);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .testi-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .stars {
+            color: #f59e0b;
+            font-size: 1.1rem;
+            margin-bottom: 14px;
+            letter-spacing: 2px;
+        }
+
+        .testi-text {
+            color: var(--slate);
+            font-size: 0.96rem;
+            margin-bottom: 22px;
+            font-style: italic;
+        }
+
+        .testi-author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .avatar {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .testi-author h4 {
+            font-size: 0.98rem;
+            font-weight: 700;
+        }
+
+        .testi-author span {
+            font-size: 0.82rem;
+            color: var(--slate);
+        }
+
+        /* ==================== CTA BANNER ==================== */
+        .cta-section {
+            padding: 70px 0;
+        }
+
+        .cta-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, #0369a1 100%);
+            border-radius: 28px;
+            padding: 56px 40px;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cta-banner h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 14px;
+        }
+
+        .cta-banner p {
+            font-size: 1.08rem;
+            opacity: 0.92;
+            max-width: 600px;
+            margin: 0 auto 28px;
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: var(--navy);
+            color: #cbd5e1;
+            padding: 70px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand .logo {
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            font-size: 0.92rem;
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+
+        footer h4 {
+            color: var(--white);
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        footer ul {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            font-size: 0.92rem;
+        }
+
+        footer ul a:hover {
+            color: #38bdf8;
+        }
+
+        .footer-bottom {
+            padding-top: 26px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            font-size: 0.88rem;
+            color: #94a3b8;
+        }
+
+        /* ==================== FLOATING WHATSAPP ==================== */
+        .wa-float {
+            position: fixed;
+            bottom: 26px;
+            right: 26px;
+            background: var(--whatsapp);
+            color: var(--white);
+            padding: 14px 22px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: var(--transition);
+        }
+
+        .wa-float:hover {
+            background: var(--whatsapp-dark);
+            transform: translateY(-3px) scale(1.03);
+        }
+
+        /* ==================== MODAL PEMESANAN ==================== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            animation: fadeIn 0.25s ease;
+        }
+
+        .modal-box {
+            background: var(--white);
+            border-radius: 24px;
+            width: 100%;
+            max-width: 480px;
+            padding: 32px;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: #f1f5f9;
+            color: var(--navy);
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            background: #e2e8f0;
+        }
+
+        .modal-box h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .modal-box p {
+            font-size: 0.9rem;
+            color: var(--slate);
+            margin-bottom: 22px;
+        }
+
+        .modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* ==================== ANIMASI RINGAN ==================== */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.4); opacity: 0.6; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes spinWave {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.96); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ==================== RESPONSIVE MOBILE ==================== */
+        @media (max-width: 968px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons, .hero-stats {
+                justify-content: center;
+            }
+
+            .calc-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-actions .btn {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links.mobile-open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 76px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                padding: 24px;
+                gap: 20px;
+                border-bottom: 1px solid var(--border);
+                box-shadow: var(--shadow-md);
+            }
+
+            .floating-pill.top-left {
+                left: 0;
+            }
+
+            .floating-pill.bottom-right {
+                right: 0;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wa-float span {
+                display: none;
+            }
+
+            .wa-float {
+                padding: 16px;
+                border-radius: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#beranda" class="logo">
+                <div class="logo-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                    </svg>
+                </div>
+                Kinclong<span>Pro</span>
+            </a>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#beranda">Beranda</a>
+                <a href="#keunggulan">Keunggulan</a>
+                <a href="#layanan">Layanan & Harga</a>
+                <a href="#cara-kerja">Cara Kerja</a>
+                <a href="#testimoni">Testimoni</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="btn btn-primary" onclick="openOrderModal('Cuci Komplit Reguler')">Pesan Jemput</button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Buka Menu">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero" id="beranda">
+        <div class="container hero-grid">
+            <div class="hero-content reveal">
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    Gratis Antar-Jemput Radius 5 KM
+                </div>
+                <h1>Pakaian Bersih, Rapi & <span>Wangi Premium</span> Tanpa Ribet.</h1>
+                <p>Serahkan urusan cucian harian hingga perawatan pakaian spesial Anda kepada tim profesional kami. Higienis, 1 mesin 1 pelanggan, dan garansi tepat waktu.</p>
+                
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="openOrderModal('Cuci Komplit Reguler')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                        Jadwalkan Penjemputan
+                    </button>
+                    <a href="#layanan" class="btn btn-outline">Lihat Daftar Harga</a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>4.9/5</h3>
+                        <p>Rating Pelanggan</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>6 Jam</h3>
+                        <p>Layanan Kilat Express</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>1 Mesin 1 Pelanggan</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual reveal">
+                <div class="hero-card-main">
+                    <div class="washer-illustration">
+                        <div class="washer-top">
+                            <div class="washer-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="washer-screen">CLEAN</div>
+                        </div>
+                        <div class="washer-drum">
+                            <div class="water-wave"></div>
+                        </div>
+                    </div>
+                    <div style="text-align: center;">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 4px;">Teknologi Cuci Higienis</h3>
+                        <p style="font-size: 0.88rem; color: #e0f2fe; margin: 0;">Deterjen ramah lingkungan & setrika uap anti-kusut</p>
+                    </div>
+                </div>
+
+                <div class="floating-pill top-left">
+                    <div class="pill-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <div>
+                        <div style="font-size: 0.85rem;">Tidak Tercampur</div>
+                        <div style="font-size: 0.75rem; color: var(--slate); font-weight: 500;">Terpisah tiap pelanggan</div>
+                    </div>
+                </div>
+
+                <div class="floating-pill bottom-right">
+                    <div class="pill-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </div>
+                    <div>
+                        <div style="font-size: 0.85rem;">Selesai Tepat Waktu</div>
+                        <div style="font-size: 0.75rem; color: var(--slate); font-weight: 500;">Notifikasi via WhatsApp</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== KEUNGGULAN ==================== -->
+    <section class="features" id="keunggulan">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Mengapa Memilih Kami</span>
+                <h2>Standar Kualitas Laundry Bintang Lima</h2>
+                <p>Kami merawat setiap helai pakaian Anda dengan standar kebersihan tinggi dan bahan berkualitas premium.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>1 Mesin 1 Pelanggan</h3>
+                    <p>Pakaian Anda tidak pernah dicampur dengan milik orang lain. Lebih higienis dan bebas risiko tertukar.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    </div>
+                    <h3>Layanan Express 6 Jam</h3>
+                    <p>Butuh pakaian bersih mendadak? Paket kilat kami siap menyelesaikan cucian dalam hitungan jam.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    </div>
+                    <h3>Parfum Premium Tahan Lama</h3>
+                    <p>Tersedia pilihan aroma eksklusif yang lembut, segar, dan tidak meninggalkan bercak pada kain.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                    </div>
+                    <h3>Gratis Antar-Jemput</h3>
+                    <p>Cukup pesan dari rumah lewat WhatsApp, kurir kami akan menjemput dan mengantar cucian tepat ke pintu Anda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LAYANAN & HARGA ==================== -->
+    <section class="services" id="layanan">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Daftar Layanan & Harga</span>
+                <h2>Pilihan Paket Sesuai Kebutuhan Anda</h2>
+                <p>Harga transparan tanpa biaya tersembunyi. Pilih layanan kiloan harian maupun satuan eksklusif.</p>
+            </div>
+
+            <!-- Filter Kategori -->
+            <div class="filter-tabs reveal">
+                <button class="filter-btn active" data-filter="all">Semua Layanan</button>
+                <button class="filter-btn" data-filter="kiloan">Laundry Kiloan</button>
+                <button class="filter-btn" data-filter="satuan">Satuan & Spesial</button>
+            </div>
+
+            <!-- Kartu Layanan -->
+            <div class="services-grid" id="servicesGrid">
+                <!-- Card 1 -->
+                <div class="service-card reveal" data-category="kiloan">
+                    <div>
+                        <span class="service-category">Kiloan Hemat</span>
+                        <h3>Cuci Kering Lipat</h3>
+                        <div class="service-price">Rp 6.000 <span>/ kg</span></div>
+                        <p class="service-desc">Cocok untuk pakaian santai harian, handuk, dan kaus rumah.</p>
+                        <ul class="service-list">
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Selesai dalam 2 hari</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Deterjen & pelembut premium</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Lipat rapi & packing plastik</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-outline" onclick="openOrderModal('Cuci Kering Lipat (Rp 6.000/kg)')">Pilih Paket Ini</button>
+                </div>
+
+                <!-- Card 2 (Populer) -->
+                <div class="service-card popular reveal" data-category="kiloan">
+                    <span class="popular-badge">Paling Laris</span>
+                    <div>
+                        <span class="service-category">Kiloan Komplit</span>
+                        <h3>Cuci Komplit Setrika</h3>
+                        <div class="service-price">Rp 8.000 <span>/ kg</span></div>
+                        <p class="service-desc">Layanan lengkap cuci bersih, kering sempurna, dan setrika uap rapi.</p>
+                        <ul class="service-list">
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Selesai dalam 2 hari</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Setrika uap boiler anti-gosong</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Bebas pilih aroma parfum</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-primary" onclick="openOrderModal('Cuci Komplit Setrika (Rp 8.000/kg)')">Pilih Paket Ini</button>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="service-card reveal" data-category="kiloan">
+                    <div>
+                        <span class="service-category">Super Cepat</span>
+                        <h3>Express Kilat 6 Jam</h3>
+                        <div class="service-price">Rp 14.000 <span>/ kg</span></div>
+                        <p class="service-desc">Solusi prioritas saat Anda membutuhkan pakaian siap pakai di hari yang sama.</p>
+                        <ul class="service-list">
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Prioritas selesai 6 jam</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Cuci + Setrika Uap + Parfum</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Gratis antar-jemput prioritas</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-outline" onclick="openOrderModal('Express Kilat 6 Jam (Rp 14.000/kg)')">Pilih Paket Ini</button>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="service-card reveal" data-category="satuan">
+                    <div>
+                        <span class="service-category">Perlengkapan Tidur</span>
+                        <h3>Bedcover & Selimut</h3>
+                        <div class="service-price">Rp 25.000 <span>/ pcs</span></div>
+                        <p class="service-desc">Pencucian mendalam untuk membasmi tungau, debu, dan bau apek.</p>
+                        <ul class="service-list">
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Mesin kapasitas besar</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Anti-bakteri & hypoallergenic</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Tas penyimpanan eksklusif</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-outline" onclick="openOrderModal('Bedcover & Selimut (Rp 25.000/pcs)')">Pilih Paket Ini</button>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="service-card reveal" data-category="satuan">
+                    <div>
+                        <span class="service-category">Perawatan Eksklusif</span>
+                        <h3>Jas, Kebaya & Gaun</h3>
+                        <div class="service-price">Rp 30.000 <span>/ stel</span></div>
+                        <p class="service-desc">Perawatan khusus bahan sensitif agar bentuk dan warna tetap terjaga.</p>
+                        <ul class="service-list">
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Teknik wet/dry cleaning aman</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Steamer halus tanpa tekanan</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Termasuk hanger & cover pelindung</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-outline" onclick="openOrderModal('Jas, Kebaya & Gaun (Rp 30.000/stel)')">Pilih Paket Ini</button>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="service-card reveal" data-category="satuan">
+                    <div>
+                        <span class="service-category">Deep Clean</span>
+                        <h3>Cuci Sepatu & Tas</h3>
+                        <div class="service-price">Rp 35.000 <span>/ pasang</span></div>
+                        <p class="service-desc">Pembersihan detail seluruh bagian sepatu (upper, midsole, insole, tali).</p>
+                        <ul class="service-list">
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Sabun khusus kanvas, kulit, suede</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Sinar UV anti-jamur & deodorizer</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Aman tanpa merusak lem sepatu</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-outline" onclick="openOrderModal('Cuci Sepatu & Tas (Rp 35.000/pasang)')">Pilih Paket Ini</button>
+                </div>
+            </div>
+
+            <!-- Kalkulator Estimasi Biaya -->
+            <div class="calculator-box reveal">
+                <div style="margin-bottom: 20px;">
+                    <h3 style="font-size: 1.35rem; font-weight: 800;">Kalkulator Estimasi Biaya</h3>
+                    <p style="color: var(--slate); font-size: 0.92rem;">Hitung perkiraan biaya cucian Anda secara instan sebelum memesan.</p>
+                </div>
+                <div class="calc-grid">
+                    <div class="calc-controls">
+                        <div class="form-group">
+                            <label for="calcService">Pilih Jenis Layanan</label>
+                            <select id="calcService" class="form-control">
+                                <option value="6000" data-name="Cuci Kering Lipat" data-unit="kg">Cuci Kering Lipat (Rp 6.000/kg)</option>
+                                <option value="8000" data-name="Cuci Komplit Setrika" data-unit="kg" selected>Cuci Komplit Setrika (Rp 8.000/kg)</option>
+                                <option value="14000" data-name="Express Kilat 6 Jam" data-unit="kg">Express Kilat 6 Jam (Rp 14.000/kg)</option>
+                                <option value="25000" data-name="Bedcover & Selimut" data-unit="pcs">Bedcover & Selimut (Rp 25.000/pcs)</option>
+                                <option value="30000" data-name="Jas, Kebaya & Gaun" data-unit="stel">Jas, Kebaya & Gaun (Rp 30.000/stel)</option>
+                                <option value="35000" data-name="Cuci Sepatu & Tas" data-unit="pasang">Cuci Sepatu & Tas (Rp 35.000/pasang)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="calcQty">Perkiraan Jumlah (<span id="calcUnitLabel">kg</span>)</label>
+                            <input type="number" id="calcQty" class="form-control" value="5" min="1" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label for="calcPerfume">Pilihan Aroma Parfum</label>
+                            <select id="calcPerfume" class="form-control">
+                                <option value="Sakura Blossom">Sakura Blossom (Segar)</option>
+                                <option value="Ocean Breeze">Ocean Breeze (Lembut)</option>
+                                <option value="Vanilla Luxury">Vanilla Luxury (Manis)</option>
+                                <option value="Tanpa Parfum">Tanpa Parfum</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="calc-result">
+                        <span>Estimasi Total Biaya</span>
+                        <h4 id="calcTotal">Rp 40.000</h4>
+                        <button class="btn" style="background: var(--white); color: var(--primary); width: 100%;" onclick="orderFromCalculator()">
+                            Pesan Estimasi Ini
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CARA KERJA ==================== -->
+    <section id="cara-kerja">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Praktis & Cepat</span>
+                <h2>4 Langkah Mudah Laundry Tanpa Keluar Rumah</h2>
+                <p>Proses pemesanan yang dirancang untuk menghemat waktu berharga Anda.</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card reveal">
+                    <div class="step-number">1</div>
+                    <h3>Pesan via Website / WA</h3>
+                    <p>Pilih layanan dan tentukan jadwal penjemputan sesuai waktu luang Anda.</p>
+                </div>
+                <div class="step-card reveal">
+                    <div class="step-number">2</div>
+                    <h3>Kurir Menjemput</h3>
+                    <p>Kurir kami datang ke lokasi Anda, menimbang pakaian, dan mencatat detail pesanan.</p>
+                </div>
+                <div class="step-card reveal">
+                    <div class="step-number">3</div>
+                    <h3>Proses Cuci Higienis</h3>
+                    <p>Pakaian dicuci terpisah, dikeringkan, disetrika uap, dan diberi parfum pilihan.</p>
+                </div>
+                <div class="step-card reveal">
+                    <div class="step-number">4</div>
+                    <h3>Diantar Rapi & Wangi</h3>
+                    <p>Cucian diantar kembali ke rumah Anda dalam kondisi bersih, rapi, dan siap pakai.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TESTIMONI ==================== -->
+    <section class="testimonials" id="testimoni">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Testimoni Pelanggan</span>
+                <h2>Apa Kata Mereka Tentang KinclongPro?</h2>
+                <p>Kepercayaan ribuan pelanggan adalah bukti komitmen kami menjaga kualitas layanan.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testi-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p class="testi-text">"Sudah langganan 8 bulan di sini. Hasil setrikaannya licin banget, wanginya awet di lemari, dan kurirnya selalu ramah serta tepat waktu."</p>
+                    <div class="testi-author">
+                        <div class="avatar">AN</div>
+                        <div>
+                            <h4>Anisa Rahmawati</h4>
+                            <span>Karyawan Swasta</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testi-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p class="testi-text">"Pernah butuh kemeja kerja mendadak pakai paket Express 6 jam, beneran kelar tepat waktu dan bersih maksimal. Sangat membantu saat sibuk!"</p>
+                    <div class="testi-author">
+                        <div class="avatar">BP</div>
+                        <div>
+                            <h4>Bima Pratama</h4>
+                            <span>Pengusaha</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testi-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p class="testi-text">"Cuci bedcover dan sepatu di KinclongPro hasilnya memuaskan. Bedcover jadi empuk dan wangi, sepatu putih saya juga kembali bersih seperti baru."</p>
+                    <div class="testi-author">
+                        <div class="avatar">DS</div>
+                        <div>
+                            <h4>Dina Sari</h4>
+                            <span>Ibu Rumah Tangga</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA BANNER ==================== -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-banner reveal">
+                <h2>Tumpukan Cucian Mulai Menggunung?</h2>
+                <p>Jangan habiskan akhir pekan Anda untuk mencuci. Hubungi kami sekarang dan nikmati layanan antar-jemput gratis hari ini!</p>
+                <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+                    <button class="btn" style="background: var(--white); color: var(--primary);" onclick="openOrderModal('Cuci Komplit Setrika')">
+                        Jadwalkan Penjemputan
+                    </button>
+                    <a href="https://wa.me/6281234567890?text=Halo%20KinclongPro%20Laundry,%20saya%20ingin%20bertanya%20tentang%20layanan%20laundry." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                        Chat WhatsApp Sekarang
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#beranda" class="logo">
+                        <div class="logo-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                        </div>
+                        Kinclong<span>Pro</span>
+                    </a>
+                    <p>Jasa laundry kiloan dan satuan modern dengan standar kebersihan higienis, parfum premium, dan layanan antar-jemput cepat.</p>
+                </div>
+
+                <div>
+                    <h4>Navigasi</h4>
+                    <ul>
+                        <li><a href="#beranda">Beranda</a></li>
+                        <li><a href="#keunggulan">Keunggulan Kami</a></li>
+                        <li><a href="#layanan">Layanan & Harga</a></li>
+                        <li><a href="#cara-kerja">Cara Pemesanan</a></li>
+                        <li><a href="#testimoni">Testimoni</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Layanan Populer</h4>
+                    <ul>
+                        <li><a href="#layanan">Cuci Kering Lipat</a></li>
+                        <li><a href="#layanan">Cuci Komplit Setrika</a></li>
+                        <li><a href="#layanan">Express Kilat 6 Jam</a></li>
+                        <li><a href="#layanan">Cuci Bedcover & Selimut</a></li>
+                        <li><a href="#layanan">Cuci Sepatu & Jas</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Kontak & Jam Buka</h4>
+                    <ul>
+                        <li>Jl. Merdeka Raya No. 88, Kota Anda</li>
+                        <li>WhatsApp: +62 812-3456-7890</li>
+                        <li>Setiap Hari: 07.00 – 21.00 WIB</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 KinclongPro Laundry. Hak Cipta Dilindungi.</p>
+                <p>Bersih • Higienis • Wangi Tahan Lama</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== FLOATING WHATSAPP ==================== -->
+    <a href="https://wa.me/6281234567890?text=Halo%20KinclongPro%20Laundry,%20saya%20ingin%20pesan%20layanan%20laundry." target="_blank" rel="noopener" class="wa-float" aria-label="Hubungi via WhatsApp">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/>
+        </svg>
+        <span>Chat WhatsApp</span>
+    </a>
+
+    <!-- ==================== MODAL PEMESANAN WHATSAPP ==================== -->
+    <div class="modal-overlay" id="orderModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeOrderModal()" aria-label="Tutup Modal">&times;</button>
+            <h3>Jadwalkan Penjemputan</h3>
+            <p>Isi data singkat di bawah ini, pesanan Anda akan langsung terhubung ke WhatsApp admin kami.</p>
+
+            <form class="modal-form" id="orderForm">
+                <div class="form-group">
+                    <label for="custName">Nama Lengkap *</label>
+                    <input type="text" id="custName" class="form-control" placeholder="Contoh: Budi Santoso" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="custService">Layanan yang Dipilih *</label>
+                    <input type="text" id="custService" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="custAddress">Alamat Penjemputan *</label>
+                    <textarea id="custAddress" class="form-control" rows="2" placeholder="Nama jalan, nomor rumah, atau patokan..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="custNote">Catatan Tambahan (Opsional)</label>
+                    <input type="text" id="custNote" class="form-control" placeholder="Contoh: Jemput jam 4 sore / Parfum Sakura">
+                </div>
+
+                <button type="submit" class="btn btn-whatsapp" style="width: 100%; margin-top: 6px;">
+                    Kirim Pesanan via WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // Nomor WhatsApp Tujuan (Ganti dengan nomor WhatsApp bisnis Anda, format 628xxx)
+        const WHATSAPP_NUMBER = "6281234567890";
+
+        // 1. Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('mobile-open');
+        });
+
+        // Tutup menu mobile saat link diklik
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('mobile-open');
+            });
+        });
+
+        // 2. Navbar Shadow saat Scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 30) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 3. Filter Kategori Layanan
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const serviceCards = document.querySelectorAll('.service-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                serviceCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filterValue === 'all' || filterValue === category) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // 4. Kalkulator Estimasi Biaya
+        const calcService = document.getElementById('calcService');
+        const calcQty = document.getElementById('calcQty');
+        const calcPerfume = document.getElementById('calcPerfume');
+        const calcTotal = document.getElementById('calcTotal');
+        const calcUnitLabel = document.getElementById('calcUnitLabel');
+
+        function formatRupiah(angka) {
+            return 'Rp ' + angka.toLocaleString('id-ID');
+        }
+
+        function updateCalculator() {
+            const price = parseInt(calcService.value) || 0;
+            const selectedOption = calcService.options[calcService.selectedIndex];
+            const unit = selectedOption.getAttribute('data-unit');
+            let qty = parseInt(calcQty.value) || 1;
+            if (qty < 1) qty = 1;
+
+            calcUnitLabel.textContent = unit;
+            const total = price * qty;
+            calcTotal.textContent = formatRupiah(total);
+        }
+
+        calcService.addEventListener('change', updateCalculator);
+        calcQty.addEventListener('input', updateCalculator);
+
+        function orderFromCalculator() {
+            const selectedOption = calcService.options[calcService.selectedIndex];
+            const serviceName = selectedOption.getAttribute('data-name');
+            const unit = selectedOption.getAttribute('data-unit');
+            const qty = calcQty.value || 1;
+            const perfume = calcPerfume.value;
+            const totalText = calcTotal.textContent;
+
+            const summary = `${serviceName} (${qty} ${unit} - Estimasi ${totalText})`;
+            openOrderModal(summary, `Parfum: ${perfume}`);
+        }
+
+        // 5. Modal Pemesanan & Redirect ke WhatsApp
+        const orderModal = document.getElementById('orderModal');
+        const custServiceInput = document.getElementById('custService');
+        const custNoteInput = document.getElementById('custNote');
+        const orderForm = document.getElementById('orderForm');
+
+        function openOrderModal(serviceName = '', note = '') {
+            custServiceInput.value = serviceName;
+            custNoteInput.value = note;
+            orderModal.classList.add('active');
+        }
+
+        function closeOrderModal() {
+            orderModal.classList.remove('active');
+        }
+
+        // Tutup modal jika klik area luar kotak
+        orderModal.addEventListener('click', (e) => {
+            if (e.target === orderModal) {
+                closeOrderModal();
+            }
+        });
+
+        orderForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('custName').value.trim();
+            const service = custServiceInput.value.trim();
+            const address = document.getElementById('custAddress').value.trim();
+            const note = custNoteInput.value.trim() || '-';
+
+            const message = 
+`Halo *KinclongPro Laundry*, saya ingin menjadwalkan penjemputan cucian:
+
+• *Nama:* ${name}
+• *Layanan:* ${service}
+• *Alamat:* ${address}
+• *Catatan:* ${note}
+
+Mohon konfirmasi jadwal penjemputannya. Terima kasih!`;
+
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            closeOrderModal();
+        });
+
+        // 6. Animasi Scroll Reveal Ringan
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    </script>
+</body>
+</html>
